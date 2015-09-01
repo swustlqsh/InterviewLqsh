@@ -13,7 +13,7 @@ import threading, Queue,time
 from random import random
 
 reload(sys)
-sys.setdefaultencoding('utf-8')
+sys.setdefaultencoding('utf-8') 
 
 class MovThread(threading.Thread):
     movieQueue = Queue.Queue()
@@ -21,7 +21,6 @@ class MovThread(threading.Thread):
     content = []
     def __init__(self):
         super(MovThread,self).__init__()
-
         self.header ={
                'User-Agent':'Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:32.0) Gecko/20100101 Firefox/33.0',
                'Connection':'keep-alive',
@@ -37,7 +36,6 @@ class MovThread(threading.Thread):
             time.sleep(random() * 2)
             self.movieQueue.task_done()
 
-
     def get_page(self,url):
         req = urllib2.Request(url,urllib.urlencode({}),self.header)
         try:
@@ -52,17 +50,17 @@ class MovThread(threading.Thread):
         # pass
 
     def save_data(self):
-        with open('/temp/movie.txt','w') as fp:
+        with open('/temp/movie.txt','w+') as fp:
             for name in self.content:
                 fp.write(name + '\n')
 
     if __name__ == '__main__':
         # init
-        MovThread.movieQueue.put(url)
+        MovThread.movieQueue.put(url) # add url
         threads = map(lambda th:MovThread(),xrange(MovThread.threadTask))
-        map(lambda th:th.start(),threads)
-        map(lambda th:th.join(),threads)
-        MovThread.save_data()
+        map(lambda th:th.start(),threads) # make all the threads start their activates
+        map(lambda th:th.join(),threads) # block until all threads are terminated
+        MovThread.save_data() # save data
 
 
 
