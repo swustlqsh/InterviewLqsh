@@ -27,5 +27,5 @@ def merge(raw_list):
     return merge(raw_list)
 
 if __name__ == '__main__':
-    # test merge
+    # test merge function
     print(merge(a))
