@@ -13,7 +13,7 @@ import threading, Queue,time
 from random import random
 
 reload(sys)
-sys.setdefaultencoding('utf-8') 
+sys.setdefaultencoding('utf-8')
 
 class MovThread(threading.Thread):
     movieQueue = Queue.Queue()

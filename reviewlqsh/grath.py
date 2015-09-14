@@ -40,7 +40,7 @@ class FibInter(object):
     def next(self):
         self.b, self.a =  self.a + self.b, self.b
         if self.b > 100:
-            raise StopIteration();
+            raise StopIteration()
         return self.a
     def __getitem__(self,n):
         assert isinstance(n,int) # assert
@@ -54,6 +54,3 @@ print f[0]
 print f[1]
 print f[2]
 print f[3]
-
-
-
