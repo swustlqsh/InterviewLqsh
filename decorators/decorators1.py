@@ -20,3 +20,43 @@ def call_foo_with_args(foo,far):
 
 print(call_foo_with_args(foo,2))
 # pass
+# nested functions
+def parent():
+    print('printing from the parent function')
+    def first_child():
+        return 'print the first_child function'
+    def second_child():
+        return 'print the second_child function'
+    # call nested functions
+    print(first_child()) # first_child
+    print(second_child()) # second_child
+# test parent function
+parent()
+
+'''
+printing from the parent function
+print the first_child function
+print the second_child function
+'''
+# returning function
+# nested functions
+def parent():
+    print('printing from the parent function')
+    def first_child():
+        return 'print the first_child function'
+    def second_child():
+        return 'print the second_child function'
+    # call nested functions
+
+    try:
+        pass
+
+    except AssertionError:
+        pass
+
+
+    print(first_child()) # first_child
+    print(second_child()) # second_child
+# test parent function
+
+print(first_child()) # first_child
