@@ -1,6 +1,8 @@
 # -*- coding:utf-8 -*-
 __author__ = 'qiusheng'
 # email: qiushengli245@gmail.com
+import random
+
 # first things first
 # before you can understand decorators, you must first understand.
 # how functions work: functions return a value based on the given arguments
@@ -47,16 +49,29 @@ def parent():
     def second_child():
         return 'print the second_child function'
     # call nested functions
-
     try:
         pass
 
     except AssertionError:
         pass
-
-
     print(first_child()) # first_child
     print(second_child()) # second_child
-# test parent function
 
-print(first_child()) # first_child
+# test parent function calculate the program runtime
+def benchmark(func):
+    import time
+    def wrapper(*args,**kwargs):
+        start_t = time.clock()
+        res = func(*args,**kwargs)
+        print('{0} time'.format(time.clock()-start_t))
+        return res
+    return wrapper
+
+@ benchmark
+def random_tree(n):
+    temp = [n for n in range(n)]
+    for i in range(n+1):
+        temp[random.choice(temp)] = random.choice(temp)
+    return temp
+
+print(random_tree(100))
