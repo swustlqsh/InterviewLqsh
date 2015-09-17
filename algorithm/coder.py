@@ -20,3 +20,6 @@ class Coder:
 if __name__ == '__main__':
     coder = Coder()
     print(coder.findCoder(['Coder','coder coder'],2))
+    text = 'Coder coder Coder1334 fdfd'
+    print(text)
+    text.find('coder')
