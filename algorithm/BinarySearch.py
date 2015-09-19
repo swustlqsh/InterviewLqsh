@@ -11,7 +11,7 @@ class BinarySearch:
         return i + 1 # return the value of item is equal val
 
 
-    def getPos(self,A,n,val):
+    def getPos(self,A,n,val): # iterative
         mi,ma = 0,n
 
         while mi <= ma:
@@ -24,6 +24,7 @@ class BinarySearch:
                 mi = mid +1
 
         return -1
+
 
 if __name__ == "__main__":
     binary = BinarySearch()
