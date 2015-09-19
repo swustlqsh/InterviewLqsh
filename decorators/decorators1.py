@@ -75,3 +75,25 @@ def random_tree(n):
     return temp
 
 print(random_tree(100))
+
+
+# class decorator
+class myDecorator:
+    def __init__(self,func):
+        self.func = func
+        self.call = 0
+    def __call__(self,*args,**kwargs):
+        print("it decortator call")
+        self.call += 1
+        print("call=%d" % (self.call))
+        self.func(*args,**kwargs)
+
+@myDecorator
+def foo(x,y):
+     print("x=%d,y=%d"%(x,y))
+
+foo(1,3) # call = 1  first call function
+foo(2,3) # call = 2  second call function
+
+
+
