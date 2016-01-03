@@ -17,4 +17,4 @@ s = range(10)
 shuffle(s) # shuffle
 insertSort(s) # insertSort
 print('insertSort function generate ')
-print(s) # print sorted s
+print(s)
